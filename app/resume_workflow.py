@@ -1,6 +1,6 @@
-from langgraph.graph import StateGraph, END # type: ignore
+from langgraph.graph import StateGraph, END
 from state import ResumeState
-from resume_nodes import LLMResumeNodes # type: ignore
+from resume_nodes import LLMResumeNodes 
 import json
 
 from datetime import date
@@ -159,4 +159,5 @@ def test_with_real_pdf():
         
     except Exception as e:
         print(f"❌ Workflow failed: {e}")
+
 
