@@ -1,11 +1,11 @@
 from state import ResumeState
-import PyPDF2 # type: ignore
-import docx # type: ignore
+import PyPDF2 
+import docx
 from typing import Dict, Any
 import os
 import json
-from langchain_groq import ChatGroq # type: ignore
-from langchain_core.messages import HumanMessage, SystemMessage # type: ignore
+from langchain_groq import ChatGroq
+from langchain_core.messages import HumanMessage, SystemMessage 
 
 class LLMResumeNodes:
     
@@ -232,5 +232,6 @@ class LLMResumeNodes:
             "is_complete": True,
             "fallback_used": True
         }
+
 
     
