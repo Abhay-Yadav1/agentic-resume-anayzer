@@ -38,9 +38,9 @@ class CoverLetterState(TypedDict):
     cover_letter: str
     enhanced_cover_letter: str
     resume_data:str
-
 class RecommendationState(TypedDict):
     jobs_data: List[dict]
 
     job_recommendations: str    
+
 
