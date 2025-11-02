@@ -7,3 +7,4 @@ requests
 pdfplumber
 groq
 pypdf2
+python-docx
