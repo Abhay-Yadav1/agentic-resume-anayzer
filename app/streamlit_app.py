@@ -160,7 +160,7 @@ def generate_cover_letter_streamlit(resume_data):
     try:
         # We need to modify the cover_letter module to accept resume data
         # For now, we'll use the existing function
-        cover_letter = give_cover_letter_workflow()
+        cover_letter = give_cover_letter_workflow(resume_data)
         return cover_letter
     except Exception as e:
         st.error(f"Error generating cover letter: {str(e)}")
@@ -285,4 +285,5 @@ def main():
     )
 
 if __name__ == "__main__":
+
     main()
