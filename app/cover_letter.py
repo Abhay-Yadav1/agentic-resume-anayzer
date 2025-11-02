@@ -58,7 +58,8 @@ def give_cover_letter_workflow():
     workflow=build_cover_letter_workflow()
     initial_state:CoverLetterState={
         "cover_letter": "",
-        "enhanced_cover_letter": ""
+        "enhanced_cover_letter": "",
+        "resume-data":jsonfile
     }
     try:
         final_state=workflow.invoke(initial_state)
@@ -72,4 +73,5 @@ if __name__=="__main__":
     cover_letter=give_cover_letter_workflow()
     print("📄 Generated Cover Letter:")
     print("="*60)
+
     print(cover_letter)        
