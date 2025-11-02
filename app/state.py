@@ -1,5 +1,5 @@
 from typing import TypedDict, List, Optional, Annotated
-from langgraph.graph.message import add_messages # type: ignore
+from langgraph.graph.message import add_messages 
 
 
 class ResumeState(TypedDict):
@@ -41,4 +41,5 @@ class CoverLetterState(TypedDict):
 
 class RecommendationState(TypedDict):
     jobs_data: List[dict]
+
     job_recommendations: str    
