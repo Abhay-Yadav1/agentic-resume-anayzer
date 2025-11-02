@@ -10,7 +10,7 @@ load_dotenv()
 
 # Get Groq API key
 groq_api_key = os.getenv("GROQ_API_KEY")
-jsonfile=test_with_real_pdf()
+
 # Initialize Groq chat model
 llm= ChatGroq(
     model_name="llama-3.1-8b-instant",
@@ -20,6 +20,7 @@ llm= ChatGroq(
 
 
 def generate_cover_letter(state: CoverLetterState):
+    jsonfile=test_with_real_pdf()
     """Node 1: Generate cover letter from JSON CV data"""
     
     
@@ -32,12 +33,14 @@ def generate_cover_letter(state: CoverLetterState):
     return {"cover_letter": response.content}
 
 def enhance_cover_letter(state: CoverLetterState):
+    jsonfile=test_with_real_pdf()
     """Node 2: Enhance the generated cover letter"""
     cover_letter = state["cover_letter"]
     
     prompt = f"""
-    Enhance this cover letter to make it more professional and impactful and in 100 words :
-    {cover_letter}
+    Enhance this cover letter to make it more professional and impactful and in 100 words.Also fill all the placeholders like Job Title, Your Name, Your Address,Email Address, Phone Number, Date etc. with appropriate values that are in JSON file:
+    {jsonfile} :
+    The cover letter is :{cover_letter}
     """
     
     response = llm.invoke([HumanMessage(content=prompt)])
@@ -59,7 +62,7 @@ def give_cover_letter_workflow():
     initial_state:CoverLetterState={
         "cover_letter": "",
         "enhanced_cover_letter": "",
-        "resume-data":jsonfile
+        
     }
     try:
         final_state=workflow.invoke(initial_state)
@@ -75,3 +78,4 @@ if __name__=="__main__":
     print("="*60)
 
     print(cover_letter)        
+
