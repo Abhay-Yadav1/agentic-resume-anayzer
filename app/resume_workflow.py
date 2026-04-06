@@ -2,14 +2,12 @@ from langgraph.graph import StateGraph, END
 from state import ResumeState
 from resume_nodes import LLMResumeNodes 
 import json
-
 from datetime import date
 import os
 def build_resume_workflow():
     # Create graph
     graph = StateGraph(ResumeState)
     nodes = LLMResumeNodes()
-    
     # Add nodes - LangGraph automatically merges partial updates
     graph.add_node("detect_file_type", nodes.file_type_detector)
     graph.add_node("extract_text", nodes.text_extractor)
@@ -56,7 +54,6 @@ def build_resume_workflow():
             "continue": "llm_analysis"
         }
     )
-    
     # Special error handling for LLM analysis that can fallback to basic parsing
     graph.add_conditional_edges(
         "llm_analysis",
@@ -159,5 +156,3 @@ def test_with_real_pdf():
         
     except Exception as e:
         print(f"❌ Workflow failed: {e}")
-
-
