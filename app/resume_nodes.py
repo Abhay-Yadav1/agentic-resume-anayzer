@@ -161,7 +161,7 @@ class LLMResumeNodes:
         }"""
         
         user_prompt = f"""
-        Analyze these skills and job titles:
+        Analyze the following skills and job titles:
         
         Skills: {skills}
         Job Titles: {job_titles}
